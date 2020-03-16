@@ -1,0 +1,7 @@
+1)definir y demostrar ecuacion diferencial lineal de primer orden-
+
+2)definir y demostrar teorema de valor medio para f(x,y) y f(x,y,z).
+
+3)condicion necesaria de convergencia de la serie
+
+4)Serie Geometrica, Demostrar, y verificar para que valores converge y Diverge. Escribir su suma e-nesima
