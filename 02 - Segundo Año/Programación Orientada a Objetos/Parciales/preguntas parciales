@@ -1,0 +1,147 @@
+
+
+Se desea realizar un analizaron de frecuencias de palabras, en textos que están almacenados en archivos de textos. 
+A) 
+Realice una aplicación que tomando como parámetro el nombre del archivo de textos, indique la frecuencia de aparición de cada una de las palabras. 
+B) 
+Grabe los resultados en un archivo de textos indicando para cada palabra su frecuencia de aparición. Es posible escribir una función plantilla tal que dato un vector de elementos de cualquier tipo (entero, float, cadenas de caracteres o complejos) 
+pueda ordenarlos cada 10 (los datos 0 a 9 están ordenados, luego los del 10 a la 19 y así sucesivamente).
+
+ Defina también la clase complejo, con todos los atributos y métodos que serían necesarios para que su función se ejecute correctamente. 
+a) Indique las diferencias entre un archivo de textos y uno binario. 
+B) Explique qué es el polimorfismo y para qué sirve. 
+C) Indique qué son los iteradores y qué tipos conoce.
+
+
+
+1- Defina una función template que tomando como argumento un vector de cualquier tipo devuelva el valor que
+
+más veces se repite en vector y la cantidad de veces que aparece. A) Realice la definición e implementación de la
+
+función. B) Realice el código de un programa que hace uso de la función para determinar el valor de mayor
+
+frecuencia en vectores de enteros y de cadenas de caracteres. NOTA: Como resultado del algoritmo no debería
+
+alterarse el orden de los elementos del vector.
+
+2- Se desea diseñar una estructura de datos para procesar información de alumnos para un registro de postulantes
+
+a becas. Para ello se dispone para cada alumno los datos Nombre, Apellido, Materias aprobadas, Aplazos
+
+obtenidos y Promedio de notas. A) Defina un contenedor para almacenar esta información teniendo como clave
+
+el documento del alumno. B) En un archivo de texto se ha almacenado el documento, el nombre, el apellido de
+
+todos los alumnos a razón de un valor por línea. C) Lea del archivo de texto notas.txt la información Documento
+
+y la secuencia de notas obtenidas en los finales. Procese estos datos para obtener las Materias aprobadas, los
+
+aplazos y el promedio. (se considera aprobado con nota 6). D) Realice un listado de los datos ordenado por
+
+promedio de mayor a menor.
+
+3- Analice el siguiente código indicando la salida del programa.
+
+#include <iostream>
+
+#include <vector>
+
+#include <algorithm>
+
+#include <iterator>
+
+using namespace std;
+
+void restaN(int valor, int dif)
+
+{ cout << valor - dif;}
+
+int media(int p1, int p2)
+
+{ return (p1+p2)/2;}
+
+void display(vector<int> & c)
+
+{ vector<int>::iterator p;
+
+for(p= c.begin(); p!= c.end();++p)
+
+cout << *p << " ";
+
+cout << endl;
+
+}
+
+int main(){
+
+vector <int> v1,v2;
+
+for (int i=0;i<10;i++)
+
+v1.push_back(i);
+
+copy(v1.begin(),v1.end(),back_inserter(v2));
+
+for (vector<int>::reverse_iterator ri = v2.rbegin(); ri != v2.rend(); ++ri)
+
+*ri = *ri + 3;
+
+reverse(v2.begin(),v2.end());
+
+for_each(v2.begin(), v2.end(), bind2nd(ptr_fun(restaN), 3));
+
+cout << endl;
+
+display(v1);
+
+display(v2);
+
+transform(v1.begin(), v1.end(), v2.begin(), ostream_iterator<int>(cout, " "), media);
+
+return 0;
+
+}
+
+4- A) A qué se denomina iteradores? B)Qué es un pair para qué se utiliza? C) A qué se denomina programación
+
+genérica? D) La STL posee contenedores lineales, contenedores asociativos y contenedores adaptados. Indique
+
+qué características posee cada uno de ellos.
+
+5- Defina una clase Arbol Binario de Busqueda y escriba el método para agregar un nodo a al árbol. 
+
+Realice dos funciones template:
+
+1) que se le pase un dato genérico y que lo guarde en un archivo en la posición p del archivo (p es la posición que ocuparía un dato si estuvieran uno atrás del otro siendo 0 la primer posición)
+
+2) devuelva un dato genérico de un archivo desde la posición p dentro del mismo (p es la posición que ocuparía un dato si estuvieran uno atrás del otro siendo 0 la primer posición) 
+
+1) (30 p) Existe un archivo de texto llamado temperaturas.txt que contiene un entero que
+
+indica el día del año a partir del primero de enero, es decir si es 0 es el primero de enero si
+
+es 32 es el 2 de febrero y temperatura tomada con decimales una por cada renglón. Diseñar
+
+un programa que leyendo el archivo genere un archivo binario con la gráfica (dia,
+
+temperatura), almacenando las coordenadas de ploteo, para que se diferencie de los otros
+
+archivos al comienzo del mismo debe tener los caracteres GRAF, luego la cantidad de
+
+puntos y a partir de allí los pares de coordenadas del gráfico.
+
+2) (25 p) Diseñe funciones genéricas sobrecargando los operadores > y < de tal manera
+
+que devuelvan respectivamente si es mayor o menor la relación entre los dos operandos.
+
+3) (30 p) Usando la STL lea el archivo de textos del ejercicio 1, determine la temperatura
+
+media, la máxima y la mínima e informe en que días sucedieron.
+
+4) (15 p) Si quisiera ordenar los datos del ejercicio 3 usando SORT de tal manera que para
+
+definir si un dato es menor a otro primero se fije en la temperatura y en caso de que sean
+
+iguales se fije en el dia cual es menor para definirlo. ¿Qué cosas tendría que hacer para que
+
+funcione? 
